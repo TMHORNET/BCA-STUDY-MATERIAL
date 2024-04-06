@@ -1,0 +1,27 @@
+soft:-  jdk /jre / vs code "IDE" 
+
+jdk :- https://www.oracle.com/in/java/technologies/javase-jdk15-downloads.html
+
+jre:- https://www.oracle.com/in/java/technologies/javase-jre8-downloads.html
+
+vs code :- https://code.visualstudio.com/download
+
+Step 1: instal jdk 
+
+check jdk instal "C:\Program Files\Java\jdk-15.0.1"
+
+Step 2: instal jre 
+
+check jdk instal "C:\Program Files\Java\jre1.8.0_271"
+
+step 3: intal vs code
+
+step 4: set Env var
+	1) click on new nAME :- JAVA_HOME , 
+	2) PATH "C:\Program Files\Java\jdk-15.0.1"
+
+STEP 5:- CLICK ON path edit then New click %JAVA_HOME%\BIN save and close all
+
+
+
+

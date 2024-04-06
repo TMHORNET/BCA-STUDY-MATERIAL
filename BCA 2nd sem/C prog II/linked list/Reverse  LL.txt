@@ -1,0 +1,78 @@
+Q1. WAP in C to reverse a singly linked list.
+
+#include<stdio.h>
+#include<malloc.h>
+
+struct node
+{  int info;
+   struct node *link;
+};
+
+struct node *beg(struct node *start, int data);
+
+void disp(struct node *start);
+
+struct node *reverse(struct node *start);
+
+int main()
+{
+  struct node *start = NULL;
+  int data;
+ 
+    for(int i=0;i<4;i++)
+   {
+    printf("enter element\n");
+    scanf("%d", &data);
+    start= beg(start,data);
+   }
+    disp(start);
+    start =reverse(start);
+    disp(start);
+   
+    return 0;
+}
+
+struct node *beg(struct node *start, int data)
+ {
+   struct node *temp;
+   temp = (struct node *) malloc(sizeof(struct node));
+   temp -> info = data;
+   temp ->  link = start;
+   start = temp;
+   return start;
+ }
+ 
+ void disp(struct node *start)
+ {
+    struct node *p;
+    p = start;
+      printf("Elements in linkedlist :\n");
+      printf("\n");
+      while( p != NULL)
+      {  printf(" %d" , p -> info);
+         p = p -> link;
+       }
+    
+ }
+
+struct node *reverse(struct node *start)
+{ 
+    struct node *current;
+    struct node *prev;
+    struct node *link;
+    current=start;
+    prev = NULL;
+    while( current!= NULL)
+    {
+       link=  current -> link;
+       current -> link = prev;
+       prev= current;
+       current = link;
+    }
+    start = prev;
+    return start;
+}
+    
+        
+          
+ 

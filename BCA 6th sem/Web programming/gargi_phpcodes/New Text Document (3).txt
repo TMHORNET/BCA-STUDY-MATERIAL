@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$str = "bcaviafternoon web programming";
+$pattern = "web";
+echo preg_match($pattern, $str);
+?>
+
+</body>
+</html><?php
+<?php
+function myTest() {
+    static $x = 0;
+   echo $x;    //  0 1 2
+   $x++;        // 1
+}
+myTest();
+echo "<br>";
+myTest();
+echo "<br>";
+myTest();
+?> 

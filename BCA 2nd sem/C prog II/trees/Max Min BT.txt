@@ -1,0 +1,65 @@
+
+Q. Write a program in C to find max and min nodes in a binary tree.
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include <limits.h> 
+  
+struct node
+{
+    int data;
+    struct node *left, *right;
+};
+  
+
+struct node *newNode(int item)
+{
+    struct node *temp =  (struct node *)malloc(sizeof(struct node));
+    temp->data = item;
+    temp->left = temp->right = NULL;
+    return temp;
+}
+
+int findMax(struct node* root) 
+{   if (root == NULL)
+    return INT_MIN; 
+    int r = root->data; 
+    int l = findMax(root->left); 
+    int rr = findMax(root->right); 
+    if (l > r) 
+      r = l; 
+    if (rr > r) 
+      r = rr; 
+    return r; 
+} 
+
+int findMin(struct node* root) 
+{   if (root == NULL)
+    return INT_MAX; 
+    int r = root->data; 
+    int l = findMin(root->left); 
+    int rr = findMin(root->right); 
+    if (l < r) 
+      r = l; 
+    if (rr < r) 
+      r = rr; 
+    return r; 
+} 
+
+int main()
+{   int max, min;
+    struct node *root = newNode(1);
+    root-> left=newNode(2);
+    root-> right=newNode(3);
+    root-> left->left=newNode(4);
+    root-> left->right=newNode(5);
+    max= findMax(root);
+    min=findMin(root);
+    printf ("Maximum element in a binary tree is %d \n",max ); 
+    printf ("Minimum element in a binary tree is %d \n",min ); 
+    return 0;
+}
+    
+    
+

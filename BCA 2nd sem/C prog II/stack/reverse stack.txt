@@ -1,0 +1,72 @@
+Q. WAP in C to reverse a stack using recursion.
+
+#include <stdio.h>
+#define MAXSIZE 7
+
+int a[MAXSIZE],top=-1;
+
+void push(int num) {
+    if (top == MAXSIZE-1)
+        printf("Stack is Full...\n");
+    else {
+        a[top + 1] = num;
+        top++;
+    }
+}
+ 
+int pop() {
+    if (top==-1)
+        printf("Stack is Empty...\n");
+    else {
+     top = top - 1;
+        return a[top+1];
+    }
+}
+ 
+
+void printStack(){
+ if(top!=-1)
+ {
+     int temp = pop();
+     printStack();
+     printf(" %d ", temp);
+     push( temp);
+    }
+}
+void insertAtBottom(int item) {
+    if (top==-1)
+    {
+        push(item);
+    } else {
+  
+        int top = pop();
+        insertAtBottom(item);
+  
+       
+        push(top);
+    }
+}
+ 
+void reverse() {
+    if (top!=-1)
+    {
+        
+        int top = pop();
+        reverse();
+  
+                insertAtBottom(top);
+    }
+}
+
+int main() {
+    push(1);
+    push(2);
+    push(3);
+    push(4);
+    printf("Original Stack\n");
+    printStack();
+    reverse();
+    printf("\nReversed Stack\n");
+    printStack();
+    return 0;
+} 

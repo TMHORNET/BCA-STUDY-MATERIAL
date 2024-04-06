@@ -1,0 +1,61 @@
+Q. WAP in C to implement quick sort.
+
+
+
+#include<stdio.h>
+#include<conio.h>
+
+void quicksort(int [10],int,int);
+
+void main()
+{
+  int a[5]={20,5,70,30,10};
+  int i;
+
+  printf("\nElements before sorting:\n ");
+  
+  for(i = 0; i < 5; i++)
+  printf(" %d",a[i]);
+
+  quicksort(a,0,5-1);
+
+  printf("\nElements after sorting :\n ");
+  for(i = 0; i < 5; i++)
+    printf(" %d",a[i]);
+
+  getch();
+}
+
+void quicksort(int a[10],int first,int last)
+{
+    int pivot,i,j,temp;
+
+     if(first < last)
+   {
+         pivot = first;
+         i = first;
+         j = last;
+
+         while(i < j)
+       {
+             while(a[i] <= a[pivot] && i < last)
+                 i++;
+             while(a[j] > a[pivot])
+                 j--;
+             if(i < j)
+            {
+                  temp = a[i];
+                  a[i] = a[j];
+                  a[j] = temp;
+             }
+         }
+
+         temp = a[pivot];
+         a[pivot] = a[j];
+         a[j] = temp;
+         quicksort(a,first,j-1);
+         quicksort(a,j+1,last);
+
+    }
+}
+

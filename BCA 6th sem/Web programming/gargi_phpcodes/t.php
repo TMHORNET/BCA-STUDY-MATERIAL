@@ -1,0 +1,1 @@
+<?php    $num  = "1";    $num1 = "8";    print $num+$num1;    ?>

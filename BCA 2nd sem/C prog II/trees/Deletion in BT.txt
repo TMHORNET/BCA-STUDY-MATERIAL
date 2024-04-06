@@ -1,0 +1,57 @@
+Q. WAP in C to delete a node from binary tree.
+
+#include<stdio.h>
+#include<stdlib.h>
+  
+struct node
+{
+    int data;
+    struct node *left, *right;
+};
+  
+
+struct node *newNode(int item)
+{
+    struct node *temp =  (struct node *)malloc(sizeof(struct node));
+    temp->data = item;
+    temp->left = temp->right = NULL;
+    return temp;
+}
+void inorder(struct node *root)
+{
+    if (root != NULL)
+    {
+        inorder(root->left);
+        printf("%d \n", root->data);
+        inorder(root->right);
+    }
+}
+
+void delete(struct node* node)  
+{ 
+    if (node == NULL)
+    return; 
+    printf("\n Deleting node: %d\n", node->data); 
+    free(node); 
+}
+int main()
+{
+    printf("Binary Tree creation by inserting nodes in a binary tree\n");
+    struct node *root = newNode(1);
+    root-> left=newNode(2);
+    root-> right=newNode(3);
+    inorder(root);
+    delete(root->right); 
+    root->right=NULL;
+    printf("Binary tree after deletion\n");
+    inorder(root);
+    return 0;
+}
+    
+    
+
+
+
+    
+
+
